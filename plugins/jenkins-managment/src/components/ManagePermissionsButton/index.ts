@@ -1,0 +1,1 @@
+export { ManagePermissionsButton } from './ManagePermissionsButton'

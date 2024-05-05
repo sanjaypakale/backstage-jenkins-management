@@ -1,9 +1,9 @@
 app:
   title: Scaffolded Backstage App
-  baseUrl: http://localhost:3000
+  baseUrl: http://localhost:3001
 
 organization:
-  name: My Company
+  name: UOB Bank
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
@@ -12,9 +12,9 @@ backend:
   # auth:
   #   keys:
   #     - secret: ${BACKEND_SECRET}
-  baseUrl: http://localhost:7007
+  baseUrl: http://localhost:7008
   listen:
-    port: 7007
+    port: 7008
     # Uncomment the following host directive to bind to specific interfaces
     # host: 127.0.0.1
   csp:
@@ -22,7 +22,7 @@ backend:
     # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
     # Default Helmet Content-Security-Policy values can be removed by setting the key to false
   cors:
-    origin: http://localhost:3000
+    origin: http://localhost:3001
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
   # This is for local development only, it is not recommended to use this in production
@@ -93,6 +93,14 @@ catalog:
       target: ../../examples/org.yaml
       rules:
         - allow: [User, Group]
+jenkins:
+  baseUrl: http://localhost:8080
+  username: sanjaypakale
+  apiKey: 11fd1331edac14ca985e40e5eb25c52c38
+  # optionally add extra headers
+  # extraRequestHeaders:
+  #   extra-header: my-value
+
 
     ## Uncomment these lines to add more example data
     # - type: url
@@ -103,3 +111,4 @@ catalog:
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
     #   rules:
     #     - allow: [User, Group]
+#11fd1331edac14ca985e40e5eb25c52c38

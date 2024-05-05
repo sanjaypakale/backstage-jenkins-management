@@ -16,6 +16,7 @@
     "build-image": "docker build ../.. -f Dockerfile --tag backstage"
   },
   "dependencies": {
+    "@backstage-community/plugin-jenkins-backend": "^0.4.5",
     "@backstage/backend-common": "^0.21.7",
     "@backstage/backend-defaults": "^0.2.17",
     "@backstage/backend-tasks": "^0.5.22",
@@ -38,6 +39,7 @@
     "@backstage/plugin-search-backend-module-techdocs": "^0.1.22",
     "@backstage/plugin-search-backend-node": "^1.2.21",
     "@backstage/plugin-techdocs-backend": "^1.10.4",
+    "@internal/backstage-plugin-jenkins-management-backend-backend": "^0.1.0",
     "app": "link:../app",
     "better-sqlite3": "^9.0.0",
     "dockerode": "^3.3.1",

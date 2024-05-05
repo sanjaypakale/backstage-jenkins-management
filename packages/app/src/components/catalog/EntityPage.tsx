@@ -57,6 +57,11 @@ import {
 
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
+import {
+  EntityJenkinsContent,
+  EntityLatestJenkinsRunCard,
+  isJenkinsAvailable,
+} from '@backstage-community/plugin-jenkins';
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -121,12 +126,35 @@ const entityWarningContent = (
   </>
 );
 
+const serviceEntityPage1 = (
+  <EntityLayout>
+    <EntityLayout.Route path="/" title="Overview">
+      {/* ... */}
+      <EntitySwitch>
+        <EntitySwitch.Case>
+          <Grid item sm={6}>
+            <EntityLatestJenkinsRunCard
+              branch="main,master"
+              variant="gridItem"
+            />
+          </Grid>
+        </EntitySwitch.Case>
+        {/* ... */}
+      </EntitySwitch>
+    </EntityLayout.Route>
+  </EntityLayout>
+);
+
+
 const overviewContent = (
   <Grid container spacing={3} alignItems="stretch">
     {entityWarningContent}
-    <Grid item md={6}>
-      <EntityAboutCard variant="gridItem" />
-    </Grid>
+    <Grid item sm={6}>
+            <EntityLatestJenkinsRunCard
+              branch="main,master"
+              variant="gridItem"
+            />
+          </Grid>
     <Grid item md={6} xs={12}>
       <EntityCatalogGraphCard variant="gridItem" height={400} />
     </Grid>
@@ -143,7 +171,12 @@ const overviewContent = (
 const serviceEntityPage = (
   <EntityLayout>
     <EntityLayout.Route path="/" title="Overview">
-      {overviewContent}
+    <Grid item sm={6}>
+            <EntityLatestJenkinsRunCard
+              branch="main,master"
+              variant="gridItem"
+            />
+          </Grid>
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
@@ -173,7 +206,7 @@ const serviceEntityPage = (
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/docs" title="Docs">
-      {techdocsContent}
+      {serviceEntityPage1}
     </EntityLayout.Route>
   </EntityLayout>
 );
@@ -181,7 +214,12 @@ const serviceEntityPage = (
 const websiteEntityPage = (
   <EntityLayout>
     <EntityLayout.Route path="/" title="Overview">
-      {overviewContent}
+    <Grid item sm={6}>
+            <EntityLatestJenkinsRunCard
+              branch="main,master"
+              variant="gridItem"
+            />
+          </Grid>
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
@@ -200,7 +238,7 @@ const websiteEntityPage = (
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/docs" title="Docs">
-      {techdocsContent}
+    {serviceEntityPage1}
     </EntityLayout.Route>
   </EntityLayout>
 );
@@ -215,11 +253,16 @@ const websiteEntityPage = (
 const defaultEntityPage = (
   <EntityLayout>
     <EntityLayout.Route path="/" title="Overview">
-      {overviewContent}
+    <Grid item sm={6}>
+            <EntityLatestJenkinsRunCard
+              branch="main,master"
+              variant="gridItem"
+            />
+          </Grid>
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/docs" title="Docs">
-      {techdocsContent}
+    {serviceEntityPage1}
     </EntityLayout.Route>
   </EntityLayout>
 );
@@ -243,9 +286,12 @@ const apiPage = (
     <EntityLayout.Route path="/" title="Overview">
       <Grid container spacing={3}>
         {entityWarningContent}
-        <Grid item md={6}>
-          <EntityAboutCard />
-        </Grid>
+        <Grid item sm={6}>
+            <EntityLatestJenkinsRunCard
+              branch="main,master"
+              variant="gridItem"
+            />
+          </Grid>
         <Grid item md={6} xs={12}>
           <EntityCatalogGraphCard variant="gridItem" height={400} />
         </Grid>
@@ -278,9 +324,12 @@ const userPage = (
     <EntityLayout.Route path="/" title="Overview">
       <Grid container spacing={3}>
         {entityWarningContent}
-        <Grid item xs={12} md={6}>
-          <EntityUserProfileCard variant="gridItem" />
-        </Grid>
+        <Grid item sm={6}>
+            <EntityLatestJenkinsRunCard
+              branch="main,master"
+              variant="gridItem"
+            />
+          </Grid>
         <Grid item xs={12} md={6}>
           <EntityOwnershipCard variant="gridItem" />
         </Grid>
@@ -294,9 +343,12 @@ const groupPage = (
     <EntityLayout.Route path="/" title="Overview">
       <Grid container spacing={3}>
         {entityWarningContent}
-        <Grid item xs={12} md={6}>
-          <EntityGroupProfileCard variant="gridItem" />
-        </Grid>
+        <Grid item sm={6}>
+            <EntityLatestJenkinsRunCard
+              branch="main,master"
+              variant="gridItem"
+            />
+          </Grid>
         <Grid item xs={12} md={6}>
           <EntityOwnershipCard variant="gridItem" />
         </Grid>
@@ -316,9 +368,12 @@ const systemPage = (
     <EntityLayout.Route path="/" title="Overview">
       <Grid container spacing={3} alignItems="stretch">
         {entityWarningContent}
-        <Grid item md={6}>
-          <EntityAboutCard variant="gridItem" />
-        </Grid>
+        <Grid item sm={6}>
+            <EntityLatestJenkinsRunCard
+              branch="main,master"
+              variant="gridItem"
+            />
+          </Grid>
         <Grid item md={6} xs={12}>
           <EntityCatalogGraphCard variant="gridItem" height={400} />
         </Grid>

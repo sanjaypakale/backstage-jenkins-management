@@ -1,0 +1,1 @@
+export { JenkinsPermissionPage } from './JenkinsPermissionPage'

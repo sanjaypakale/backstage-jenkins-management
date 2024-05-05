@@ -1,8 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: backstage-jenkins-management
+  name: DVX
   description: An example of a Backstage application.
+  annotations:
+    'jenkins.io/job-full-name': DVX/job1
   # Example for optional annotations
   # annotations:
   #   github.com/project-slug: backstage/backstage
